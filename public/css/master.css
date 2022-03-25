@@ -1,0 +1,155 @@
+:root{
+    --color-primary : #6D53FB;
+    --color-green: #13BFA6;
+    --color-orange: #fb6b25;
+    --color-red: #F82649;
+    --color-white: rgb(255, 255, 255);
+    --color-black: rgb(0, 0, 0);
+    --color-success: #56cfe1;
+}
+
+.btn-primaryP {
+    color: var(--color-white) !important;
+    background-color: var(--color-primary) !important;
+    border-color:var(--color-white) !important;
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+  .btn-primaryP:hover,
+  .btn-primaryP:focus,
+  .btn-primaryP:active,
+  .btn-primaryP.active,
+  .open .dropdown-toggle.btn-primaryP {
+    color: var(--color-white) !important;
+    background-color: var(--color-green) !important;
+    border-color: var(--color-white) !important;
+  }
+  .btn-primaryP .badge {
+    color: var(--color-primary) !important;
+    background-color: var(--color-white) !important;
+  }
+/* primaryP end*/
+
+/* successP start*/
+.btn-successP {
+    color: var(--color-white) !important;
+    background-color: var(--color-green);
+    border-color: var(--color-white) !important;
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+  .btn-successP:hover,
+  .btn-successP:focus,
+  .btn-successP:active,
+  .btn-successP.active,
+  .open .dropdown-toggle.btn-successP {
+    color: var(--color-white) !important;
+    background-color: var(--color-success) !important;
+    border-color: var(--color-white) !important;
+  }
+  .btn-successP .badge {
+    color: var(--color-green) !important;
+    background-color: var(--color-white) !important;
+  }
+/* successP end*/
+
+/* dangerP start*/
+.btn-dangerP {
+    color: var(--color-white) !important;
+    background-color: var(--color-red) !important;
+    border-color: var(--color-red) !important;
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+  .btn-dangerP:hover,
+  .btn-dangerP:focus,
+  .btn-dangerP:active,
+  .btn-dangerP.active,
+  .open .dropdown-toggle.btn-dangerP {
+    color: var(--color-white) !important;
+    background-color: var(--color-orange) !important;
+    border-color: var(--color-orange) !important;
+  }
+  .btn-dangerP .badge {
+    color: var(--color-red) !important;
+    background-color: var(--color-white) !important;
+  }
+/* dangerP end*/
+
+/* warningP start*/
+.btn-warningP {
+    color: var(--color-white) !important;
+    background-color: var(--color-orange) !important;
+    border-color: var(--color-white) !important;
+    border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+.btn-warningP:hover,
+.btn-warningP:focus,
+.btn-warningP:active,
+.btn-warningP.active,
+.open .dropdown-toggle.btn-warningP {
+    color: var(--color-white) !important;
+    background-color: var(--color-red) !important;
+    border-color: var(--color-white) !important;
+}
+.btn-warningP .badge {
+    color: var(--color-orange) !important;
+    background-color: var(--color-white) !important;
+}
+/* warningP end*/
+
+/* bg__persons */
+
+/* bg__primary start */
+.bg__primary{
+    background: var(--color-primary);
+    color:var(--color-white) !important;
+}
+/* bg__primary end */
+
+/* bg__success start */
+.bg__success{
+  background: var(--color-green);
+  color:var(--color-white) !important;
+}
+/* bg__success end */
+
+/* bg__danger start */
+.bg__danger{
+  background: var(--color-red);
+  color:var(--color-white) !important;
+}
+/* bg__danger end */
+
+/* bg__info start */
+.bg__info{
+  background: var(--color-success);
+  color:var(--color-white) !important;
+}
+/* bg__info end */
+
+.bg__gray{
+  background-color: #423D61;
+  color:var(--color-white);
+}
+
+.img__brand{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
