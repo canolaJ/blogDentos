@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('img/logoDentos.png') }}" type="image/png" sizes="40x40">
-    <title>BlogDentos</title>
-    <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fontAwesome/all.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/master.css') }}" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.master')
+
+@section('content')
   <!-- start navigation -->
 
   <nav class="navbar navbar-expand-lg navbar-light bg__primary">
@@ -23,7 +13,7 @@
             <img class="img__brand" src="{{ asset('img/logoDentos.png') }}" alt="" width="90" height="40">
         </span>
         <form class="d-flex me-auto">
-          <input class="form-control me-1" type="search" placeholder="Buscar en el blog por fecha" aria-label="Search">
+          <input class="form-control me-1" type="date" placeholder="Buscar un blog por fecha" title="Buscar post por fecha" aria-label="Search">
           <button class="btn btn-successP" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         @if (Route::has('login'))
@@ -31,8 +21,8 @@
               @auth
                   <a href="{{ url('/home') }}">Inicio</a>
               @else
-                  <button class="btn btn-successP" href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Ingresar</button>
-                  <button class="btn btn-warningP" href="{{ route('register') }}"><i class="fa-solid fa-circle-plus"></i> Registrarse</button>
+                  <a class="btn btn-successP" href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Ingresar</a>
+                  <a class="btn btn-warningP" href="{{ route('register') }}"><i class="fa-solid fa-circle-plus"></i> Registrarse</a>
               @endauth
             </div>
           @endif
@@ -41,6 +31,28 @@
   </nav>
 
   <!-- end navigation -->
-    <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
-</body>
-</html>
+
+  <!-- start main -->
+  <main class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Ultimos Post Agregados en DentOs</h1>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        @forelse($posts as $post)<!-- data post in Bd -->
+          <div class="col-sm-12 col-md-6 col-lg-4 card">
+            <div class="card__post">
+              <h3>{{ $post['title_post'] }}</h3>
+              <p>{{ $post['description_post'] }}</p>
+              <div class="date"><i class="fa-solid fa-calendar-days"></i> {{ $post['created_at'] }}</div>
+            </div>
+          </div>
+        @empty
+          <h3>No existen post para mostrar!</h3><!-- messenge if data is empty -->
+        @endforelse
+      </div>
+  </main>
+  <!-- end main -->
+@endsection

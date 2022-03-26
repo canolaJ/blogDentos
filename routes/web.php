@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('viewBlogs');
-});
+// Route::get('/', function () {
+//     return view('viewBlogs');
+// });
+
+Route::get('/', 'PostController@index')->name('post');
 
 Auth::routes();
 
