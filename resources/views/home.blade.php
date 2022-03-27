@@ -44,6 +44,11 @@
           <h3 class="is__Post">No haz creado ningún post para mostrar en el BlogDentos!</h3><!-- messenge if data is empty -->
         @endforelse
       </div>
+      <div class="row">
+        <div class="col-sm-12 col__pagination">
+          {{ $posts->links() }}
+        </div>
+      </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

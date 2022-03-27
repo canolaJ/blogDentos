@@ -53,6 +53,11 @@
           <h3>No existen post para mostrar para la fecha indicada!</h3><!-- messenge if data is empty -->
         @endforelse
       </div>
+      <div class="row">
+        <div class="col-sm-12">
+          {{ $posts->links() }}
+        </div>
+      </div>
   </main>
   <!-- end main -->
 @endsection
