@@ -95,11 +95,9 @@ class PostController extends Controller
 
             }
 
-
             $posts = Post::select('title_post','description_post','created_at')
                         ->where('user_id', '=', $user_id)
-                        ->orderBy('created_at', 'desc')->paginate(30);
-
+                        ->orderBy('created_at', 'desc')->paginate(100);
             return view('home', compact('posts'));
 
         } catch (\Throwable $th) {

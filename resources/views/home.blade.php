@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-sm-12 col__logout">
             <h5>
-                {{ Auth::user()->name }}
+            <i class="fa-solid fa-circle-user"></i> {{ Auth::user()->name }}
             </h5>
             <a class="btn btn-dangerP" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                Cerrar Sesión
+                Cerrar Sesión <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -21,8 +21,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col__create__post">
-            <a class="btn btn-successP"href="#" data-bs-toggle="modal" id="api" data-bs-target="#post__externo" data-bs-whatever="@mdo">Cargar Post Externos</a>
-            <a class="btn btn-warningP" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Crear Post</a>
+            <a class="btn btn-successP"href="#" data-bs-toggle="modal" id="api" data-bs-target="#post__externo" data-bs-whatever="@mdo"><i class="fa-solid fa-file-arrow-up"></i> Cargar Post Externos</a>
+            <a class="btn btn-warningP" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-circle-plus"></i> Crear Post</a>
         </div>
     </div>
     <div class="row">
@@ -88,7 +88,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dangerP" data-bs-dismiss="modal">Cerrar</button>
-                <button id="create__post" href="#" class="btn btn-primaryP">Crear Posts</button>
+                <button  data-bs-dismiss="modal" aria-label="Close" id="create__post" href="#" class="btn btn-primaryP">Crear Posts</button>
             </div>
         </div>
     </div>

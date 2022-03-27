@@ -13,11 +13,11 @@
             <img class="img__brand" src="{{ asset('img/logoDentos.png') }}" alt="" width="90" height="40">
         </span>
         <form class="d-flex me-auto" method="GET" action="{{ route('post') }}">
-          <input class="form-control me-1" type="date" name="date" id="date placeholder="Buscar un blog por fecha" title="Buscar post por fecha" aria-label="Search">
+          <input class="form-control me-1" type="date" name="date" id="date" placeholder="Buscar un blog por fecha" title="Buscar post por fecha" aria-label="Search">
           <button class="btn btn-successP" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         @if (Route::has('login'))
-            <div class="top-right links">
+            <div class="top-right links row__entry">
               @auth
                   <a href="{{ url('/home') }}">Inicio</a>
               @else
