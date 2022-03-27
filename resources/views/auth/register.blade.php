@@ -6,7 +6,7 @@
     <form class="form__register" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
         @csrf
         <img src="{{ asset('img/logoDentos.png') }}" alt="">
-        <input class="usuario {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email" name="email" type="text" placeholder="Email" >
+        <input class="usuario {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email" name="email" type="email" placeholder="Email" >
         @if ($errors->has('email'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -24,7 +24,7 @@
                 <strong>{{ $errors->first('password') }}</strong>
             </span>
         @endif
-        <input class="pwd {{ $errors->has('name') ? ' is-invalid' : '' }}" name="password_confirmation" id="password_confirmation" name="password" type="password" placeholder="Confirmar Contraseña">
+        <input class="pwd {{ $errors->has('name') ? ' is-invalid' : '' }}" name="password_confirmation" id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirmar Contraseña">
         <input class="check__adult" name="check" type="checkbox" placeholder="Contraseña"><span>Declaro que soy mayor de edad.</span>
 
         <button type="submit" class="btn btn-primaryP" href="#">Registrar</button>

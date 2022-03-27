@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = Auth::id();
+        $posts = Post::select('title_post','description_post','created_at')
+                    ->where('user_id', '=',$id)
+                    ->orderBy('created_at', 'desc')->paginate(10);
+        return view('home', compact('posts'));
     }
 }
