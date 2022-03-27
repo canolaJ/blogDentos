@@ -27,7 +27,7 @@ class HomeController extends Controller
         $id = Auth::id();
         $posts = Post::select('title_post','description_post','created_at')
                     ->where('user_id', '=',$id)
-                    ->orderBy('created_at', 'desc')->paginate();
+                    ->orderBy('created_at', 'desc')->paginate(10);
         return view('home', compact('posts'));
     }
 }

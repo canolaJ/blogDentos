@@ -19,12 +19,12 @@ class PostController extends Controller
     
             if ($date==''){
                $posts = Post::select('id','title_post','description_post','created_at')
-                               ->orderBy('id', 'desc')->paginate(100);
+                               ->orderBy('id', 'desc')->paginate(10);
             }
             else{
                 $posts = Post::select('id','title_post','description_post','created_at')
                             ->where("created_at", 'like', '%'. $date . '%')
-                            ->orderBy('id', 'desc')->paginate(100);
+                            ->orderBy('id', 'desc')->paginate(10);
             }
     
            return view('viewBlogs', compact('posts'));
@@ -70,7 +70,7 @@ class PostController extends Controller
 
             $posts = Post::select('title_post','description_post','created_at')
                         ->where('user_id', '=', $post->user_id)
-                        ->orderBy('created_at', 'desc')->paginate(100);
+                        ->orderBy('created_at', 'desc')->paginate(10);
             return view('home', compact('posts'));
 
         } catch (\Throwable $th) {
@@ -97,7 +97,7 @@ class PostController extends Controller
 
             $posts = Post::select('title_post','description_post','created_at')
                         ->where('user_id', '=', $user_id)
-                        ->orderBy('created_at', 'desc')->paginate(100);
+                        ->orderBy('created_at', 'desc')->paginate(10);
             return view('home', compact('posts'));
 
         } catch (\Throwable $th) {
