@@ -17,9 +17,11 @@
 
 Route::get('/', 'PostController@index')->name('post');
 
+Route::post('newPost', 'PostController@newPost')->name('newPost')->middleware('auth');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::post('/store', 'PostController@store')->name('store');
+Route::post('/store', 'PostController@store')->name('store')->middleware('auth');
 

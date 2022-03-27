@@ -14,17 +14,17 @@ class PostController extends Controller
     public function index(Request $request)
     {
         try {
-            $date = "";
-            $valor = "";
+            //We analyze if the index requires a search date for the posts created in the blog
+            $date =  $request->date ? $request->date : '';
     
             if ($date==''){
-               $posts = Post::select('title_post','description_post','created_at')
-                               ->orderBy('id', 'desc')->paginate(10);
+               $posts = Post::select('id','title_post','description_post','created_at')
+                               ->orderBy('id', 'desc')->paginate(100);
             }
             else{
-                $posts = Post::select('id','number_bill','total_bill')
+                $posts = Post::select('id','title_post','description_post','created_at')
                             ->where("created_at", 'like', '%'. $date . '%')
-                            ->orderBy('id', 'desc')->paginate(10);
+                            ->orderBy('id', 'desc')->paginate(100);
             }
     
            return view('viewBlogs', compact('posts'));
@@ -32,8 +32,6 @@ class PostController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
-        // $search = $request->search;
-        // $valor = $request->valor;
        
 
     }
@@ -57,6 +55,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         try {
+            // validate fields
 
             request()->validate([
                 'title_post' => 'required|max:40|min:6',
@@ -71,8 +70,38 @@ class PostController extends Controller
 
             $posts = Post::select('title_post','description_post','created_at')
                         ->where('user_id', '=', $post->user_id)
-                        ->orderBy('created_at', 'desc')->paginate(10);
+                        ->orderBy('created_at', 'desc')->paginate(100);
             return view('home', compact('posts'));
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function newPost(Request $request)
+    {
+        try {
+            //we receive the data from the api and we go through the array to save in the db
+            $arrayData = $request->data;
+            $user_id = Auth::id();
+
+            for ($i=0; $i < count($arrayData) ; $i++) {
+
+                $post = new Post();
+                $post->title_post = $request->data[$i]['title'];
+                $post->description_post = $request->data[$i]['body'];
+                $post->user_id = Auth::id();
+                $post->save();
+
+            }
+
+
+            $posts = Post::select('title_post','description_post','created_at')
+                        ->where('user_id', '=', $user_id)
+                        ->orderBy('created_at', 'desc')->paginate(30);
+
+            return view('home', compact('posts'));
+
         } catch (\Throwable $th) {
             throw $th;
         }

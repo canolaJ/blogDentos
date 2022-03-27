@@ -12,8 +12,8 @@
         <span class="navbar-brand" href="#">
             <img class="img__brand" src="{{ asset('img/logoDentos.png') }}" alt="" width="90" height="40">
         </span>
-        <form class="d-flex me-auto">
-          <input class="form-control me-1" type="date" placeholder="Buscar un blog por fecha" title="Buscar post por fecha" aria-label="Search">
+        <form class="d-flex me-auto" method="GET" action="{{ route('post') }}">
+          <input class="form-control me-1" type="date" name="date" id="date placeholder="Buscar un blog por fecha" title="Buscar post por fecha" aria-label="Search">
           <button class="btn btn-successP" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         @if (Route::has('login'))
@@ -40,9 +40,9 @@
         </div>
       </div>
       <hr>
-      <div class="row">
+      <div class="row row__post">
         @forelse($posts as $post)<!-- data post in Bd -->
-          <div class="col-sm-12 col-md-6 col-lg-4 card">
+          <div class="col-sm-12 col-md-6 col-lg-4 card row__post">
             <div class="card__post">
               <h3>{{ $post['title_post'] }}</h3>
               <p>{{ $post['description_post'] }}</p>
@@ -50,7 +50,7 @@
             </div>
           </div>
         @empty
-          <h3>No existen post para mostrar!</h3><!-- messenge if data is empty -->
+          <h3>No existen post para mostrar para la fecha indicada!</h3><!-- messenge if data is empty -->
         @endforelse
       </div>
   </main>

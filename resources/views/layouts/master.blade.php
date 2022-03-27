@@ -13,5 +13,7 @@
 <body>
     @yield('content')
     <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/axios.js') }}"></script>
+    <script src="{{ asset('js/api.js') }}"></script>
 </body>
 </html>
